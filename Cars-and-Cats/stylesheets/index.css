@@ -1,0 +1,14 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+
+#container{
+	text-align: center;
+	color: limegreen;
+	margin: 0 auto;
+	margin-top: 5%;
+	background-color: blue;
+	width: 50%;
+	height: 100px;
+}

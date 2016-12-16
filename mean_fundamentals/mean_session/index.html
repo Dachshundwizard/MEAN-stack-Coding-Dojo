@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+            <input type="text" id= "name_input" name="stuff" />
+            <button id ="submit">Submit!</button>
+            <ul id='target'>
+
+            </ul>
+        <script>
+            //Traverse the DOM tree and return the element with the specified ID
+        var button = document.getElementById("submit");
+        button.addEventListener("click", function(){
+            var input = document.getElementById("name_input"),
+                text = input.value;
+                updatedText = `<li>${text}</li>`;
+                ul_obj = document.getElementById("target");
+                ul_obj.innerHTML += updatedText;
+
+                input.value = "";
+        });
+        </script>
+    </body>
+</html>
