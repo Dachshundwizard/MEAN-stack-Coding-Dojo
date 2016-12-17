@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Event listeners</title>
+    </head>
+    <body>
+        <style media="screen">
+            #myBtn {
+                background-color: green;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                /*box-shadow: 10px 10px 5px grey;*/
+            }
+
+                #myBtn:hover{
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.9);
+                }
+        </style>
+        <p>Here are some examples of event listeners.</p>
+        <button id='myBtn' onclick="getElementById('demo').innerHTML=Date()">Click here!</button>
+        <p id="demo"></p>
+        <script>
+            document.getElementById("myBtn").addEventListener("click", myFunction);
+            function myFunction() {
+                alert("Thanks for Clicking!");
+            }
+        </script>
+    </body>
+</html>
