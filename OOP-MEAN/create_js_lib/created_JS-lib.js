@@ -46,7 +46,7 @@ var _ = {
 }
 
 var array = [3,4,5]
-_.map(array, function callback(x){return x * 5;});
+console.log(_.map(array, function callback(x){return x * 5;}));
 console.log(array);
 console.log(_.reduce(array, function callback(x, memo){return x + memo;}));
 console.log(_.find(array, function callback(x){return x == 15;}));
