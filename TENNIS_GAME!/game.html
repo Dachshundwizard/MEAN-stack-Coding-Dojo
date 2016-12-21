@@ -7,8 +7,8 @@
     var canvasContext; // Underlying graphical information
     var ballX = 50;
     var ballY = 50;
-    var ballSpeedX = 10; // Going this fast per update
-    var ballSpeedY = 4; // Postive y goes downward, not up.
+    var ballSpeedX = 500; // Going this fast per update
+    var ballSpeedY = 500; // Postive y goes downward, not up.
 
     var player1Score = 0; // Each side has a score, which starts out at 0
     var player2Score = 0;
@@ -19,7 +19,7 @@
 
     var paddle1Y = 250;
     var paddle2Y = 250;
-    const PADDLE_HEIGHT = 100; // This value will not change.
+    const PADDLE_HEIGHT = 800; // This value will not change.
     const PADDLE_THICKNESS = 10; // Instead of 10's floating around, now we know that it is PADDLE_THICKNESS.
 
     // The program is going to fire this function everytime the mouse moves.
@@ -146,7 +146,7 @@
     }
 
     drawNet();
-    
+
         // This is left player paddle
         colorRect(3, paddle1Y, PADDLE_THICKNESS, PADDLE_HEIGHT, 'white'); // How many px away from left side, how many px away from top.
         // This is right player paddle
@@ -155,7 +155,7 @@
         canvasContext.fillText(player1Score, 100, 100); // Display location is @ 100, 100
         canvasContext.fillText(player2Score, canvas.width-100, 100);
         // Next line draws the ball
-        colorCircle(ballX, ballY, 7, 'red');
+        colorCircle(ballX, ballY, 50, 'red');
 
     }
 
