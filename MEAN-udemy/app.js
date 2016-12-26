@@ -9,12 +9,15 @@ var app = express(); // calling in the express variable as a function
 var path = require('path'); // This is a native node module. This is to return a file to a browser. We will use this to map out the actual path to the file we want to use.
 app.set('port', 3000); // setting port's value as 3000
 
-app.get('/', function(req, res){
-    console.log("GET the homepage");
-    res
-    .status(404) // Changed status code here, check it inside console.
-    .send("Express yourself");
-});
+app.use(express.static(path.join(__dirname, 'public'))); // Getting the directory path of this public folder and passing it to the express.static method.
+// When express receives a request for a root, the first thing it will do is to check if the root matches with any files in the public folder, and if it finds a match it will deliver that file directly to the browser.
+// express will look for static roots that start with 'public'
+// app.get('/', function(req, res){ // This is our first root, which is our 'homepage' root.
+//     console.log("GET the homepage");
+//     res
+//     .status(200) // Changed status code here, check it inside console.
+//     .sendFile(path.join(__dirname, 'public', 'index.html')); // .join() method joins a number of different arguments to construct our filepath.
+
 app.get('/json', function(req, res){
     console.log("GET the homepage");
     res
@@ -25,8 +28,8 @@ app.get('/file', function(req, res){
     console.log("GET the file");
     res
     .status(200) // Changed status code here, check it inside console.
-    .sendFile(path.join(__dirname)); // __dirname finds the current directory that the the app.js file is in.
-    // Secondly we will pass in the name of this file. When you request '/file' it will return 'app.js' to the browser. 
+    .sendFile(path.join(__dirname, 'app.js')); // __dirname finds the current directory that the the app.js file is in.
+    // Secondly we will pass in the name of this file. When you request '/file' it will return 'app.js' to the browser.
 });
 // In the 'app.listen' method, after the app.get retrieving the port number, we've put in an anonymous function
 // Which is the callback
