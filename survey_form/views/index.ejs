@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Survey Form</title>
+    </head>
+    <body>
+        <form action="/result" method="post">
+            <div id="name">
+                <label for="name">Your Name: </label>
+                <input type="text" name="name" id="">
+            </div>
+            <div id="location">
+                <label for="location">Dojo Location: </label>
+                <select name="dojo_location">
+                    <option value="mountain view">Mountain View</option>
+                    <option value="seattle">Seattle</option>
+                    <option value="los angeles">Los Angeles</option>
+                    <option value="canada">Canada</option>
+                </select>
+            </div>
+            <div id="language">
+                <label for="language">Favorite Language: </label>
+                <select name="favorite_language">
+                    <option value="nodejs">NodeJs</option>
+                    <option value="php">PHP</option>
+                    <option value="express">Express</option>
+                    <option value="javascript">Javascript</option>
+                </select>
+            </div>
+            <div id="comment">
+                <label for="comment">Comment (optional):</label>
+                <textarea name="comment"></textarea>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>

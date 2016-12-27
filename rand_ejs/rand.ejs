@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        {	title:	'Cleaning Supplies'
+         supplies:	['mop', 'broom', 'duster']	}
+
+         <h1><%= title %></h1>
+        <ul>
+        <% for(var i=0; i<supplies.length; i++) {%>
+        	<li><%= supplies[i] %></li>
+        <% } %>
+        </ul>
+    </body>
+</html>
