@@ -1,4 +1,4 @@
-// require these dependancies 
+// require these dependancies
 var express = require('express'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
@@ -6,12 +6,13 @@ var express = require('express'),
     port = 8000,
     app = express();
 
-// Set up bodyParser to parse form data
-app.use(bodyParser.urlencoded({ extended: false }));
+// Set up bodyParser to parse form data, since we need to handle post data for adding a new user
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Set up database connection, schema, model
 mongoose.connect('mongodb://localhost/quoting_dojo');
 
+// The model represents all of the collections. All of the data inside of our database.
 // Schema is created to outline the shape of our data before we throw it into our database // Blueprint of our data
 var QuoteSchema = new mongoose.Schema({
     name: String,
@@ -28,7 +29,7 @@ app.set('view engine', 'ejs');
 
 // Here are our routes!
 app.get('/', function(req, res){
-    res.render('welcome');
+    res.render('index');
 });
 
 app.get('/quotes', function(req, res){
@@ -37,6 +38,23 @@ app.get('/quotes', function(req, res){
         res.render('quotes', { quotes: results });
     });
 });
+
+app.post('/quotes', function(req, res){
+    var quote = new Quote({name: req.body.name, quote: req.body.quote});
+    quote.save(function(err){
+        if(err){
+            console.log("something went wrong!");
+        } else {
+            res.redirect('/main');
+        }
+    })
+})
+
+app.get('/main', function(req, res){
+    Quote.find({}, function(err, quotes){
+        res.render('main', {quotes:quotes});
+    });
+})
 
 app.post('/quotes', function(req, res){ // When post request hits quotes, we will redirect to quotes
     // console.log(req.body); // I did this to see what the req.body looked like, and then I decided to pass req.body into quote.create(res.body
