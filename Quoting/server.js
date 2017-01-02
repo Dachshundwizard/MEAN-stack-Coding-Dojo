@@ -27,6 +27,14 @@ app.set('views', path.join(__dirname, './views')); // Telling express that this 
 // We're using ejs as our view engine
 app.set('view engine', 'ejs');
 
+// store the function in a variable
+var routes_setter = require('./server/config/routes.js');
+// invoke the function stored in routes_setter and pass it the 'app' variable
+routes_setter(app);
+// require will first run the file at the given location (routes.js) and then return whatever is in module.exports
+// we then invoke the function passing it our app variable as an argument which sets up all of our route handlers!
+
+
 // Here are our routes!
 app.get('/', function(req, res){
     res.render('index');
