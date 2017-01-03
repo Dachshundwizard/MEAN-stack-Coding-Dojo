@@ -47,6 +47,14 @@
     </body>
 </html>
 
-<!-- The ng-click directive executed a method we assigned to $scope called addStudent().  The ng-click directive functions very much like the .click() jQuery handler (and by extension, the onClick html attribute). Note: Similar functionality can be achieved using an ng-submit directive on the form tag.
-The values in the form elements were added as a JSON object to the array using the standard .push() method on the $scope.students array. Since we changed $scope data, the data-binding feature recognized that the data in the ng-repeat loop needed to be updated so one more list item was added to reflect this.
-The ng-model directive created a new variable in our $scope called newStudent. The ng-model directive is what allows data on the VIEW side to be available to the $scope variable.  We will utilize the ng-model directive whenever we want to pass data to the controller. -->
+<!-- The ng-click directive executed a method we assigned to $scope called addStudent().
+The ng-click directive functions very much like the .click() jQuery handler (and by extension, the onClick html attribute).
+Note: Similar functionality can be achieved using an ng-submit directive on the form tag.
+The values in the form elements were added as a JSON object to the array using the standard .push() method on the $scope.students array.
+Since we changed $scope data, the data-binding feature recognized that the data in the ng-repeat loop needed to be updated so one more list item was added to reflect this.
+The ng-model directive created a new variable in our $scope called newStudent. The ng-model directive is what allows data on the VIEW side to be available to the $scope variable.
+We will utilize the ng-model directive whenever we want to pass data to the controller. -->
+
+<!-- The $scope variable is essential to the whole process. No $scope, no data binding. It is pivotal to recognize how we used $scope here. First, we used the ng-repeat directive to cycle
+through data in $scope. Then, we used the ng-model directive to pass a JSON object to our addStudent $scope method using the ng-click directive and data flowed the opposite way
+(from view to the controller). Make sure you're really comfortable with this before you move on. -->
