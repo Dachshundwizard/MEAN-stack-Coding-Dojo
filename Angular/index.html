@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- Hey, this element and all of its children are now under the purview of Angular! -->
+<!-- <html ng-app>
+    <head>
+        <meta charset="utf-8">
+        <title>Angular</title>
+        <script src="Angular_html_linking/bower_components/angular/angular.js" charset="utf-8"></script>
+    </head>
+    <body ng-init=" dojo='ninja' ">
+        <h1>{{ dojo }}</h1>
+    </body>
+</html> -->
+<!-- Now everything from the start of the html tag to the end of the html tag is controlled by an ng-app directive -->
+<html ng-app= ''>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div ng-init="students=['Mike', 'John', 'Quinten', 'Rob']">
+            <ul>
+                <li ng-repeat="student in students">{{student}}</li>
+            </ul>
+        </div>
+        <h3>{{ 49567 * 2243 }}</h3>
+        <h3ng-bind='49567 * 2243'></h3>
+    </body>
+</html>
