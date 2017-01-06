@@ -11,8 +11,15 @@ myApp.controller('mainController', ['$scope', '$timeout', '$filter', function($s
     $timeout(function(){
         $scope.name = 'Quinten';
     }, 3000);
-}]);
 
+setTimeout(function() {
+    $scope.$apply(function() {
+        $scope.handle = 'ilovedachshunds';
+        console.log('Scope changed!');
+    });
+}, 3000);
+
+}]);
 
 
 
