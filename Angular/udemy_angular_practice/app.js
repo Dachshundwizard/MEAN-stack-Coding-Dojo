@@ -1,10 +1,13 @@
 
 var myApp = angular.module('myApp', ['ngMessages', 'ngResource']); // These Dependencies are the list of mudles that myApp uses.
 
-myApp.controller('mainController', ['$scope', '$timeout', function($scope, $timeout) { // Here we can place the services, and ngular will use Dependency injection
+myApp.controller('mainController', ['$scope', '$timeout', '$filter', function($scope, $timeout, $filter) { // Here we can place the services, and ngular will use Dependency injection
 // We are injecting services into our controller
     $scope.name = 'John'; // Setting a value
-
+    $scope.handle = '';
+    $scope.lowercasehandle = function(){
+        return $filter('lowercase')($scope.handle);
+    }
     $timeout(function(){
         $scope.name = 'Quinten';
     }, 3000);

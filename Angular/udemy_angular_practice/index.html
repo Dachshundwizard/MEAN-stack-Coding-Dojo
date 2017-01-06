@@ -47,6 +47,12 @@
                         <div class="alert alert-danger" ng-message="minlength">The value entered is too short</div>
                     </div>
             </form>
+            <div>
+                <label>What is your twitter handle?</label>
+                <input type="text" ng-model="handle"/>
+                <hr />
+                <h1>twitter.com/{{ lowercasehandle() }}</h1>
+            </div>
             </div>
 		</div>
 
