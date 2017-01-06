@@ -1,8 +1,112 @@
 /* CSS Document */
+
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,700|Open+Sans+Condensed:700);
+#myCalculator {
+    margin: 0 auto;
+    padding: 0;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    line-height: 24px;
+    max-width: 800px;
+}
 
-#myCalculator { margin: 0; padding: 0; font-size: 16px; font-family: 'Open Sans', sans-serif; font-weight: 300; line-height: 24px; max-width: 800px; }
+#myCalculator main {
+    background-color: #444;
+}
+
+#myCalculator main section {
+    width: 25%;
+    float: left;
+    text-align: center;
+    padding-top: 110px;
+    color: #FFF;
+    background-repeat: no-repeat;
+    background-position: center 5px;
+    background-size: 63px 100px;
+}
 
 
-/* CSS rules go here */
+#myCalculator main: after {
+    content: '';
+    display: block;
+    clear: both;
+}
 
+#myCalculator main section.inc {
+    background-color: #ba2d2d;
+    background-image: url(images/bulb_inc.svg);
+}
+
+#myCalculator main section.hal {
+    background-color: #de6615;
+    background-image: url(images/bulb_hal.svg);
+}
+
+#myCalculator main section.cfl {
+    background-color: #efc20f;
+    background-image: url(images/bulb_cfl.svg);
+}
+
+#myCalculator main section.led {
+    background-color: #35b23c;
+    background-image: url(images/bulb_led.svg);
+}
+
+
+/*The '>' sign here signifies that I am only selecting the direct child divs of the 'main section'.*/
+
+#myCalculator main section>div {
+    padding: 5px 0;
+    background-color: rgba(0, 0, 0, .35);
+}
+
+#myCalculator main h4 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: .8em;
+    letter-spacing: 1px;
+    margin: 0 0 5px 0;
+    text-transform: uppercase;
+}
+
+#myCalculator main p {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+/*The '+' sign signifies that I want to update a p tage only if it follows an other p tag */
+#myCalculator main p + p {
+    font-size: 1em;
+    font-weight: 300;
+}
+
+/*Here we are using the tick marks `` which is a string literal, which induces anything we add inside.*/
+#myCalculator main p::after {
+    content: 'w';
+}
+
+#myCalculator main p + p::before {
+    content: '$';
+}
+
+#myCalculator main p + p::after {
+    content: 'per year';
+    color: rgba(255,255,255,.5);
+    padding-left: 4px;
+}
+
+#myCalculator form {
+    background-color: black;
+    margin: 0;
+    padding: 10px 0px;
+}
+
+#myCalculator form br {
+     display: none;
+}
+
+#myCalculator form > div {
+    color: white;
+    width: 33%;
+}
