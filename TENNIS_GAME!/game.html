@@ -5,21 +5,21 @@
 <script>
     var canvas; // This will be a handle on the information of the dimensions of our display area
     var canvasContext; // Underlying graphical information
-    var ballX = 50;
-    var ballY = 50;
-    var ballSpeedX = 500; // Going this fast per update
-    var ballSpeedY = 500; // Postive y goes downward, not up.
+    var ballX = 100;
+    var ballY = 100;
+    var ballSpeedX = 10; // Going this fast per update
+    var ballSpeedY = 10; // Postive y goes downward, not up.
 
     var player1Score = 0; // Each side has a score, which starts out at 0
     var player2Score = 0;
-    const WINNING_SCORE = 3;
+    const WINNING_SCORE = 5;
 
     var showingWinScreen = false;
 
 
-    var paddle1Y = 250;
-    var paddle2Y = 250;
-    const PADDLE_HEIGHT = 800; // This value will not change.
+    var paddle1Y = 100;
+    var paddle2Y = 100;
+    const PADDLE_HEIGHT = 100; // This value will not change.
     const PADDLE_THICKNESS = 10; // Instead of 10's floating around, now we know that it is PADDLE_THICKNESS.
 
     // The program is going to fire this function everytime the mouse moves.
@@ -155,7 +155,7 @@
         canvasContext.fillText(player1Score, 100, 100); // Display location is @ 100, 100
         canvasContext.fillText(player2Score, canvas.width-100, 100);
         // Next line draws the ball
-        colorCircle(ballX, ballY, 50, 'red');
+        colorCircle(ballX, ballY, 7, 'red');
 
     }
 
