@@ -10,11 +10,15 @@ myApp.controller('mainController', ['$scope', '$timeout', '$filter', function($s
         return $filter('lowercase')($scope.handle);
     }
 
+    $scope.alertClicked = function(){
+        alert("HEY!");
+    }
+
     $scope.rules = [ // rules for a twitter handle, for example
         {rulename: "Must be 5 characters"},
         {rulename: "Must not be used elsewhere"},
         {rulename: "Must be cool!"}
-    ]
+    ]; // Array of javascript objects
     $timeout(function(){
         $scope.name = 'Quinten';
     }, 3000);

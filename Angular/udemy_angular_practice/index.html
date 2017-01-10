@@ -51,6 +51,7 @@
                 <label>What is your twitter handle?</label>
                 <input type="text" ng-model="handle"/>
             </div>
+            <input type="submit" value="Click me!" ng-click="alertClicked()"/>
             <div class="alert" ng-class="{ 'alert-warning': handle.length < characters, 'alert-success': handle.length > characters}" ng-show="handle.length !== characters">
                 <div ng-show="handle.length < characters">
                     You have less than 5 characters!
@@ -64,9 +65,10 @@
                 <h1>twitter.com/{{ lowercasehandle() }}</h1>
                 <h3>Handle Rules</h3>
                 <ul>
-                    <li ng-repeat='rule in rules'></li>
-                    <li></li>
-                    <li></li>
+                    <!-- Heres my existing array, and I am going to loop through each as a raviable rule in 'rules' -->
+                    <li ng-repeat='rule in rules'>
+                        {{ rule.rulename }}
+                    </li>
                 </ul>
             </div>
     </body>
