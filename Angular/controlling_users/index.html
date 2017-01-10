@@ -4,14 +4,17 @@
         <meta charset="utf-8">
         <title>Controlling Users</title>
         <script src="bower_components/angular/angular.js" charset="utf-8"></script>
+        <link rel="stylesheet" href="main.css">
     </head>
     <body>
+        <div ng-controller='usersController'>
         <h1>Controlling Users</h1>
+        <!-- {{thing}} This was just for testing the controller
+        <span ng-bind='thing'></span> -->
         <form>
             <input type="text" placeholder="First Name">
             <input type="text" placeholder="Last Name">
             <input type="text" placeholder="Favorite Language">
-            <input type="date" placeholder="Date Created">
             <input type="submit" value="Add User">
         </form>
         <table>
@@ -24,16 +27,44 @@
                 </tr>
             </thead>
             <tbody>
-                <td>Quinten</td>
-                <td>Warren</td>
-                <td>JavaScript</td>
-                <td>
-                    <button>Delete</button>
-                </td>
+                <tr ng-repeat="userObj in users">
+                    <td>{{userObj.firstName}}</td>
+                    <td>{{userObj.lastName}}</td>
+                    <td>{{userObj.favoriteLanguage}}</td>
+                    <td><button>Delete</button></td>
             </tbody>
         </table>
+    </div>
         <script>
         var myApp = angular.module('myCoolApp', []) // This empty array is used to tell our angular model if there are any other functionalities such as routing
+
+        myApp.controller('usersController', ['$scope', function($scope){ // Using an array allows us to make it so when we minify our JS, they stay the same.
+            // $scope.thing = "Hello world!"; for testing purposes
+            
+            $scope.users = [ // Array of three objects with 3 properties.
+                {
+                    firstName: "Quinten",
+                    lastName: "Warren",
+                    favoriteLanguage: "JavaScript"
+                },
+                {
+                    firstName: "Robert",
+                    lastName: "Reynolds",
+                    favoriteLanguage: "PHP"
+                },
+                {
+                    firstName: "Dino",
+                    lastName: "Dachshund",
+                    favoriteLanguage: "JavaScript"
+                },
+                {
+                    firstName: "Casey",
+                    lastName: "Warren",
+                    favoriteLanguage: "C#"
+                }
+            ];
+        }])
+
         </script>
     </body>
 </html>
