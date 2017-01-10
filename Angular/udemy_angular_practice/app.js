@@ -5,9 +5,16 @@ myApp.controller('mainController', ['$scope', '$timeout', '$filter', function($s
 // We are injecting services into our controller
     $scope.name = 'John'; // Setting a value
     $scope.handle = '';
+    $scope.characters = 5; // The twitter handle must be 5
     $scope.lowercasehandle = function(){
         return $filter('lowercase')($scope.handle);
     }
+
+    $scope.rules = [ // rules for a twitter handle, for example
+        {rulename: "Must be 5 characters"},
+        {rulename: "Must not be used elsewhere"},
+        {rulename: "Must be cool!"}
+    ]
     $timeout(function(){
         $scope.name = 'Quinten';
     }, 3000);
