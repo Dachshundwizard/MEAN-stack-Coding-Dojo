@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app='myCoolApp'>
+    <head>
+        <meta charset="utf-8">
+        <title>Controlling Users</title>
+        <script src="bower_components/angular/angular.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <h1>Controlling Users</h1>
+        <form>
+            <input type="text" placeholder="First Name">
+            <input type="text" placeholder="Last Name">
+            <input type="text" placeholder="Favorite Language">
+            <input type="date" placeholder="Date Created">
+            <input type="submit" value="Add User">
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Favorite Language</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <td>Quinten</td>
+                <td>Warren</td>
+                <td>JavaScript</td>
+                <td>
+                    <button>Delete</button>
+                </td>
+            </tbody>
+        </table>
+        <script>
+        var myApp = angular.module('myCoolApp', []) // This empty array is used to tell our angular model if there are any other functionalities such as routing
+        </script>
+    </body>
+</html>
