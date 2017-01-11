@@ -11,10 +11,10 @@
         <h1>Controlling Users</h1>
         <!-- {{thing}} This was just for testing the controller
         <span ng-bind='thing'></span> -->
-        <form>
-            <input type="text" placeholder="First Name">
-            <input type="text" placeholder="Last Name">
-            <input type="text" placeholder="Favorite Language">
+        <form ng-submit='createUser()'>
+            <input type="text" ng-model='user.firstName' placeholder="First Name">
+            <input type="text" ng-model='user.lastName' placeholder="Last Name">
+            <input type="text" ng-model='user.favoriteLanguage' placeholder="Favorite Language">
             <input type="submit" value="Add User">
         </form>
         <table>
@@ -31,7 +31,7 @@
                     <td>{{userObj.firstName}}</td>
                     <td>{{userObj.lastName}}</td>
                     <td>{{userObj.favoriteLanguage}}</td>
-                    <td><button>Delete</button></td>
+                    <td><button ng-click='deleteUser(userObj)'>Delete</button></td>
             </tbody>
         </table>
     </div>
@@ -40,7 +40,14 @@
 
         myApp.controller('usersController', ['$scope', function($scope){ // Using an array allows us to make it so when we minify our JS, they stay the same.
             // $scope.thing = "Hello world!"; for testing purposes
-            
+            $scope.createUser = function(){
+                $scope.users.push($scope.user);
+            }
+            $scope.deleteUser = function(userToDelete) { // Resetting '$scope.users' to itself, but filtered
+                $scope.users = $scope.users.filter(function(userObj){ // It will be passing us objects within the iterated array
+                    return userObj !== userToDelete; // If we return true, then it will keep it. It will return true evertime it is not equal to 'userToDelete'
+                })
+            }
             $scope.users = [ // Array of three objects with 3 properties.
                 {
                     firstName: "Quinten",
