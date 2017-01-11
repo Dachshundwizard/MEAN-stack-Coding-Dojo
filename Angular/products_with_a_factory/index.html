@@ -28,8 +28,8 @@
                 </thead>
                 <tbody ng-repeat="product in products | orderBy: 'price' track by %index ">
                     <tr>
-                        <td></td>
-                        <td></td>
+                        <td>{{product.name}}</td>
+                        <td>{{product.price | currency:"USD $"}}</td>
                         <td><button type="button" name="button"></button></td>
                     </tr>
                 </tbody>
