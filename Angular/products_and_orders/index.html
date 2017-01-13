@@ -14,7 +14,7 @@
                 <form ng-submit="create()">
                     <input type="text" ng-model="product.name" placeholder="Product Name">
                     <input type="number" ng-model="product.price" step="0.01" placeholder="Enter Price">
-                    <input type-"submit" value="Add Product">
+                    <input type="submit" value="Add Product">
                 </form>
                 <table>
                     <thead>
@@ -24,7 +24,38 @@
                             <td>Action</td>
                         </tr>
                     </thead>
+                    <tbody ng-repeat="product in products | orderBy: 'price' track by $index ">
+                        <tr>
+                            <td>{{product.name}}</td>
+                            <td>{{product.price | currency: "USD $"}}</td>
+                            <td>
+                                <button ng-click="delete($index)">Delete Product</button>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </fieldset>
+        </div>
+        <div ng-controller="ordersController">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="product in products | orderBy: 'price' track by $index ">
+                    <tr>
+                        <td>{{product.name}}</td>
+                        <td>{{product.price | currency:"USD $"}}</td>
+                        <td>{{product.quantity}}</td>
+                        <td>
+                            <button ng-click="update($index)">Buy Product</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
     </body>
 </html>
