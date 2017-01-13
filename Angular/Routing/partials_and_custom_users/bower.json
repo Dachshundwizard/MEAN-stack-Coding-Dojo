@@ -1,0 +1,17 @@
+{
+  "name": "partials_and_custom_users",
+  "homepage": "https://github.com/Quint436/MEAN-Stack",
+  "authors": [
+    "Quint436 <quint436@uw.edu>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
