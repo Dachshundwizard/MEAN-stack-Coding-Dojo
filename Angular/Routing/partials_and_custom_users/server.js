@@ -5,3 +5,8 @@ var express = require('express'),                                     // This gi
     app     = express();                                              // Calls the express function
 
 app.use(express.static(path.join(root, 'client')));                   // Using the built-in middleware function in Express, this is how we can serve static files(images, css, js)
+app.use(express.static(path.join(root, 'bower_components')));
+
+app.listen(port, function() {
+    console.log(`Server running on port ${port}`);
+})
