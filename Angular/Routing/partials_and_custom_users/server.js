@@ -9,4 +9,4 @@ app.use(express.static(path.join(root, 'bower_components')));
 
 app.listen(port, function() {
     console.log(`Server running on port ${port}`);
-})
+});
