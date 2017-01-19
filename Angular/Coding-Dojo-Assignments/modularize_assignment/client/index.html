@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app=''>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="static/css/styles.css">
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src='factories/angular_user_factory.js'></script>
+        <script src='controllers/angular_edit_controller.js'></script>
+        <script src='controllers/angular_new_controller.js'></script>
+        <script src='controllers/angular_index_controller.js'></script>
+        <title>Document</title>
+        <script>
+        var app = angular.module('app', ['ngRoute']);
+        /* configuration for angular route */
+        app.config(function($routeProvider) {
+          $routeProvider
+            .when('/index', {
+              templateUrl: '/partials/index.html',
+              controller: 'indexController'
+            })
+            .when('/edit/:id', {
+              templateUrl: '/partials/edit.html',
+              controller: 'editController',
+              controllerAs: 'eC'
+            })
+            .when('/new', {
+              templateUrl: '/partials/new.html',
+              controller: 'newController',
+            })
+            .otherwise({
+              redirectTo: '/index'
+            });
+        });
+        </script>
+      </head>
+
+      <body ng-app="app">
+        <div ng-view>
+        </div>
+
+      </body>
+
+      </html>
