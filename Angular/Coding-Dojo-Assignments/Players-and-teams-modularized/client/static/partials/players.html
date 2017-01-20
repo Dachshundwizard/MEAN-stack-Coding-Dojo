@@ -1,0 +1,22 @@
+<div ng-controller="playersCtrl as PC">
+	<form name='playerForm'>
+		<h3>
+			Name: <input type="text" name='nameField' ng-model="PC.newPlayer.name" ng-minlength='4' required>
+			<input type="submit" value="Add Player" ng-click="PC.addPlayers()">
+		</h3>
+	</form>
+	<div ng-messages="playerForm.nameField.$error" role="alert">
+		<p ng-message="minlength">The player name is too short</p>
+		<p ng-message="required">The player name is required</p>
+	</div>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Actions</th>
+		</tr>
+		<tr ng-repeat = "player in PC.allPlayers">
+			<td>{{ player.name }}</td>
+			<td><button ng-click="PC.deletePlayer($index)">Remove Player</button></td>
+		</tr>
+	</table>
+</div>
