@@ -1,12 +1,15 @@
 <div ng-controller="playersController">
  	<h1>Players</h1>
- 	<form class='col-md-4'>
+ 	<form class='col-md-4' name='playerForm'>
 		<div class='form-group'>
 			<label for='name'>Name:</label>
-			<input type='text' class='form-control' ng-model='newPlayer.name'>
+			<input type='text' class='form-control' name='name' ng-model='newPlayer.name' ng-minlength='4' required>
 		</div>
 		<button class='btn btn-info' ng-click='createPlayer()'>Add Player</button>
 	</form>
+    <div ng-messages="playerForm.name.$error">
+        <p ng-message="minlength">The player name is too short.</p>
+        <p ng-message="required">The player name is required.</p>
  	<table class='table'>
 		<thead>
 			<tr>
