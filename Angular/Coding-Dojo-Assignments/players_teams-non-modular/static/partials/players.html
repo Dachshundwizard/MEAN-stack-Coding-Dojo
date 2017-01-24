@@ -8,9 +8,10 @@
 		</div>
 		<button class='btn btn-info' ng-click='createPlayer()'>Add Player</button>
 	</form>
-    <div ng-messages="playerForm.name.$error">
+    <div class='warning' ng-messages="playerForm.name.$error">
         <p ng-message="minlength">The player name is too short.</p>
         <p ng-message="required">The player name is required.</p>
+    </div>
  	<table class='table'>
 		<thead>
 			<tr>
@@ -18,7 +19,7 @@
 				<th>Action</th>
 			</tr>
 		</thead>
-			<tr ng-repeat='player in players track by $index'>
+			<tr ng-repeat="player in players track by $index" >
 				<td>{{ player.name }}</td>
 				<td><button class='btn btn-danger' ng-click='deletePlayer($index)'>Remove Player</button</td>
 			</tr>
