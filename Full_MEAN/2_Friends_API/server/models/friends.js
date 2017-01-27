@@ -5,4 +5,4 @@ var FriendSchema = new mongoose.Schema({
     last_name: String,
     dob: Date
 }, {timestamps: true});
-mongoose.model('Friends', FriendSchemaa);
+mongoose.model('friend', FriendSchema);
